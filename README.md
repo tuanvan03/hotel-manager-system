@@ -2,12 +2,14 @@
 # Hệ Thống Quản Lý Khách Sạn
 
 Hệ thống Quản Lý Khách Sạn là một ứng dụng desktop được thiết kế để tối ưu hóa và bảo mật tất cả các hoạt động trực tuyến của một khách sạn. Hệ thống này trang bị cho đội ngũ quản lý khách sạn sức mạnh và linh hoạt để quản lý toàn bộ hoạt động khách sạn một cách hiệu quả.
-
+#Link gg drive
+https://drive.google.com/drive/folders/12O6bLQlGbGEjK2faUNmAI6IZs0Qsru1-
 ## Giao Diện
 
 ### Màn Hình Quản Lý Phòng (dành cho Quản Lý)
 
 ### Màn Hình Quản Lý Đặt Phòng (dành cho Lễ Tân)
+
 
 ## Yêu Cầu Hệ Thống
 
