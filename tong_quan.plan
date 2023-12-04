@@ -1,0 +1,37 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Manager" as manager
+actor "Saller" as saller
+actor "Receptionist" as receptionist
+actor "Client" as client
+
+rectangle "Hotel Management System" {
+  usecase "Log in" as login
+  usecase "Room & Hotel Management" as roomManagement
+  usecase "View Report" as createReport
+  usecase "Book a Room" as bookRoom
+  usecase "Cancel a Booking" as cancelBooking
+  usecase "Check-in" as checkIn
+  usecase "Check-out" as checkOut
+  usecase "Payment" as payment
+
+  manager --> roomManagement
+  manager --> createReport 
+  manager --> login
+  saller --> bookRoom
+  saller --> cancelBooking
+  saller --> login
+  receptionist --> bookRoom 
+  receptionist --> cancelBooking 
+  receptionist --> checkIn 
+  receptionist --> checkOut 
+  receptionist --> payment 
+  receptionist --> login
+  client --> saller : Interact to Seller by phone
+  client --> receptionist : Interact to Receptionist directly
+}
+
+@enduml

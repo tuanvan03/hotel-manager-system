@@ -1,0 +1,71 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Manager" as manager
+
+
+usecase "Log In" as login
+usecase "Log Out" as logout
+usecase "Change information, password" as changeInf
+
+usecase "Room & Hotel Management" as horo
+usecase "Manage Room Information" as manageRoomInfo
+usecase "Manage Hotel Information" as manageHotelInfo
+usecase "Edit room information" as editr
+usecase "Display room information" as disr
+usecase "Display Room's name" as roomname
+usecase "Display Type" as type
+usecase "Display Price" as price
+usecase "Display Service" as service
+usecase "Display People's staying information" as staying
+usecase "Display Hotel's name" as hotelName
+usecase "Display Hotel's address" as hotelAdress
+usecase "Display Hotel's rate" as rate
+usecase "Display Hotel's description" as hotelDes 
+usecase "Display Text" as text
+usecase "Display Image" as image
+
+usecase "View Report" as viewReport
+usecase "View Master Report" as viewMasterReport
+usecase "View Revenue Report" as viewRevenueReport
+usecase "View Room Availability Report" as viewRoomAvailabilityReport
+usecase "View Customer Booking Report" as viewCustomerBookingReport
+
+
+manager --> login
+login <.. logout : <<Extend>>
+login <.. changeInf : <<Extend>>
+
+
+manager --> horo
+horo <.. manageRoomInfo : <<Extend>>
+horo <.. manageHotelInfo : <<Extend>>
+
+manageRoomInfo <.. editr : <<Extend>>
+manageRoomInfo <.. disr : <<Extend>>
+
+editr <.. roomname : <<Extend>>
+editr <.. type : <<Extend>>
+editr <.. price : <<Extend>>
+editr <.. service : <<Extend>>
+disr ..> roomname : <<Include>>
+disr ..> type : <<Include>>
+disr ..> price : <<Include>>
+disr ..> service : <<Include>>
+disr ..> staying :: <<Include>> 
+
+manageHotelInfo ..> hotelName : <<Include>>
+manageHotelInfo ..> hotelAdress : <<Include>>
+manageHotelInfo ..> rate : <<Include>>
+manageHotelInfo ..> hotelDes : <<Include>>
+hotelDes <.. text : <<Extend>>
+hotelDes <.. image : <<Extend>>
+manager --> viewReport
+viewReport <|-- viewMasterReport
+viewReport <|-- viewRevenueReport
+viewReport <|-- viewCustomerBookingReport
+viewReport <|-- viewRoomAvailabilityReport
+
+@enduml

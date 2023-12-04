@@ -1,0 +1,25 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Saller" as saller
+
+usecase "Log in" as login
+
+usecase "Book a Room" as bookRoom
+
+
+saller --> bookRoom
+saller --> login
+
+usecase "Find Available Room" as findRoom 
+bookRoom ..> findRoom : <<Include>>
+usecase "Add customer" as addCus
+findRoom <.. addCus : <<Extend>>
+
+usecase "Log Out" as logout
+usecase "Change information, password" as changeInf
+login <.. logout : <<Extend>>
+login <.. changeInf : <<Extend>>
+@enduml

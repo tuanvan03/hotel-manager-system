@@ -1,0 +1,51 @@
+    @startuml
+
+    left to right direction
+    skinparam packageStyle rectangle
+
+    actor "Receptionist" as receptionist
+
+    usecase "Log In" as login
+    usecase "Log Out" as logout
+    usecase "Change Information, Password" as changeInf
+
+    usecase "Book a Room" as bookRoom
+    usecase "Cancel a Booking" as cancelBooking
+    usecase "Check-in" as checkIn
+    usecase "Check-out" as checkOut
+    usecase "Payment" as payment
+    usecase "Generate Invoice" as generateInvoice
+
+    receptionist --> login
+    login <.. logout : <<Extend>>
+    login <.. changeInf : <<Extend>>
+    receptionist --> bookRoom 
+    receptionist --> cancelBooking 
+    receptionist --> checkIn 
+    receptionist --> checkOut 
+    receptionist --> payment
+
+
+
+    usecase "Find available room" as checkRoom
+    bookRoom ..> checkRoom : <<Include>>
+    usecase "Add Customer" as addCus
+    checkRoom <.. addCus : <<Extend>>
+
+    usecase "Check Customer" as checkCan
+    cancelBooking ..> checkCan : <<Include>>
+    usecase "Delete Customer" as deleteCus
+    usecase "Add to blacklist" as blacklist
+    checkCan <.. deleteCus : <<Extend>>
+    deleteCus <.. blacklist : <<Extend>>
+
+    usecase "Confirm to arrive" as confirm 
+    checkIn ..> checkCan : <<Include>>
+    checkCan <.. confirm : <<Extend>>
+
+
+    checkOut ..> checkCan : <<Include>>
+
+
+    payment ..> generateInvoice : <<Include>>
+    @enduml
